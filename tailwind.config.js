@@ -6,7 +6,15 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // 👇 Add CSS variables
+        sans: ["var(--font-opensans)"],
+        mono: ["var(--font-roboto-mono)"],
+        poppins: ["var(--font-poppins)"],
+        martian: ["var(--font-martian)"],
+      },
+    },
   },
   plugins: [],
 };
