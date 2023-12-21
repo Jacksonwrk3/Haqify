@@ -3,8 +3,8 @@ import Link from "next/link";
 function Logo() {
   return (
     <>
-      <Link href="/" passHref>
-        <a>Haqify</a>
+      <Link href="/" className="text-2xl tracking-wide uppercase font-roboto">
+        HAQIFY
       </Link>
     </>
   );
