@@ -9,8 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         // 👇 Add CSS variables
-        sans: ["var(--font-opensans)"],
-        mono: ["var(--font-roboto-mono)"],
+        roboto: ["var(--font-roboto-mono)"],
         poppins: ["var(--font-poppins)"],
         martian: ["var(--font-martian)"],
       },
