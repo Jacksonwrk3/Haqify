@@ -24,7 +24,10 @@ const poppins = Poppins({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${martianMono.variable}`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${martianMono.variable} ${robotoMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
