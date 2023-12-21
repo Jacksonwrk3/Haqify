@@ -4,7 +4,7 @@ function Logo() {
   return (
     <>
       <Link href="/" passHref>
-        <a className="uppercase font-roboto">Haqify</a>
+        <a>Haqify</a>
       </Link>
     </>
   );
