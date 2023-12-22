@@ -2,7 +2,7 @@ import Navigation from "../components/Navigation/Navigation.jsx";
 export default function Home() {
   return (
     <>
-      <header>
+      <header className="w-screen">
         <Navigation />
       </header>
     </>

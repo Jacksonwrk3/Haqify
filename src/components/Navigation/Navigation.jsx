@@ -1,13 +1,13 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import Hamburger from "../Hamburger/Hamburger";
+import Menu from "../Menu/Menu";
 function Navigation() {
   return (
-    <nav className="flex items-center border border-red-400">
-      <div className="flex items-center w-5">
-        <Hamburger />
+    <nav className="flex flex-col w-full">
+      <div className="relative flex flex-row items-center w-full h-24 ">
+        <Menu />
+        <Logo />
       </div>
-      <Logo />
     </nav>
   );
 }
