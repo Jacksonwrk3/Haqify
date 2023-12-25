@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${martianMono.variable} ${robotoMono.variable}`}
     >
-      <body>{children}</body>
+      <body className="relative">{children}</body>
     </html>
   );
 }
