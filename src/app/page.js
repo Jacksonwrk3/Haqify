@@ -1,6 +1,5 @@
 import Navigation from "../components/Navigation/Navigation.jsx";
 import MenuModal from "../components/MenuModal/MenuModal.jsx";
-
 export default function Home() {
   return (
     <>
