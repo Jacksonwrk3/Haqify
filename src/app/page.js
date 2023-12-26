@@ -4,12 +4,11 @@ import HeroBanner from "../components/HeroBanner/HeroBanner.jsx";
 export default function Home() {
   return (
     <>
-      <header className="relative z-50 w-screen ">
+      <header className="relative z-50 flex flex-col w-screen h-screen">
         <Navigation />
-      </header>
-      <main>
         <HeroBanner />
-      </main>
+      </header>
+      <main></main>
     </>
   );
 }
