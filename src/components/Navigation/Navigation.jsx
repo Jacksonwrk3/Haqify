@@ -5,7 +5,7 @@ import MenuModal from "../MenuModal/MenuModal";
 import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper";
 function Navigation() {
   return (
-    <nav className="flex flex-col w-full">
+    <nav className="relative flex flex-col w-full ">
       <div className="flex flex-row items-center justify-between w-full h-24">
         <div className="flex flex-row ">
           <Menu />

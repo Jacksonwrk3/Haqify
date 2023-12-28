@@ -2,7 +2,7 @@ import React from "react";
 import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper";
 const HeroBanner = () => {
   return (
-    <section className="flex flex-col items-center pt-20 border border-red-400 ">
+    <section className="flex flex-col items-center pt-20 ">
       {/* Maybe add a feature where the color is changing instead of a constand */}
       {/* py-2 */}
       <p className="max-w-screen-xl px-5 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg md:text-lg w-fit font-martian">

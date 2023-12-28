@@ -5,13 +5,11 @@ import ImageWithText from "../components/ImageWText/ImageWText.jsx";
 export default function Home() {
   return (
     <>
-      <header className="relative z-50 flex flex-col w-screen h-screen">
+      <header className="relative z-50 flex flex-col w-screen h-screen ">
         <Navigation />
         <HeroBanner />
       </header>
-      <main>
-        <ImageWithText />
-      </main>
+      <main>{/* <ImageWithText /> */}</main>
     </>
   );
 }
