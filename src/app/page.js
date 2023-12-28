@@ -1,6 +1,7 @@
 import Navigation from "../components/Navigation/Navigation.jsx";
 import MenuModal from "../components/MenuModal/MenuModal.jsx";
 import HeroBanner from "../components/HeroBanner/HeroBanner.jsx";
+import ImageWithText from "../components/ImageWText/ImageWText.jsx";
 export default function Home() {
   return (
     <>
@@ -8,7 +9,9 @@ export default function Home() {
         <Navigation />
         <HeroBanner />
       </header>
-      <main></main>
+      <main>
+        <ImageWithText />
+      </main>
     </>
   );
 }

@@ -2,16 +2,16 @@ import React from "react";
 import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper";
 const HeroBanner = () => {
   return (
-    <section className="flex flex-col items-center h-screen pt-20 ">
+    <section className="flex flex-col items-center pt-20 border border-red-400 ">
       {/* Maybe add a feature where the color is changing instead of a constand */}
       {/* py-2 */}
-      <p className="max-w-screen-xl px-5 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg w-fit font-martian">
+      <p className="max-w-screen-xl px-5 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg md:text-lg w-fit font-martian">
         Over 3 million passion developer
       </p>
-      <h1 className="w-11/12 max-w-screen-xl mt-10 text-4xl leading-snug text-center font-poppins ">
+      <h1 className="w-11/12 max-w-screen-xl mt-10 text-4xl leading-snug text-center md:text-6xl font-poppins ">
         Network and collaborate with passionate developers
       </h1>
-      <p className="max-w-screen-xl mt-8 text-sm font-medium text-center font-martian">
+      <p className="max-w-screen-xl mt-8 text-sm font-medium text-center md:text-lg font-martian">
         Connect with thousands of aspiring developers & teams around the world
       </p>
       <PrimaryButtonStyleWrapper margin="mt-8">
