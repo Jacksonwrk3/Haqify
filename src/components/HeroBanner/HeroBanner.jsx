@@ -5,7 +5,7 @@ const HeroBanner = () => {
     <section className="flex flex-col items-center h-screen pt-20 ">
       {/* Maybe add a feature where the color is changing instead of a constand */}
       {/* py-2 */}
-      <p className="max-w-screen-xl px-1 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg w-11/12 max-w-[384px] font-martian">
+      <p className="max-w-screen-xl px-5 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg w-fit font-martian">
         Over 3 million passion developer
       </p>
       <h1 className="w-11/12 max-w-screen-xl mt-10 text-4xl leading-snug text-center font-poppins ">
