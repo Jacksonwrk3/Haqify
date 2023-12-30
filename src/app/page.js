@@ -5,11 +5,8 @@ import ImageWithText from "../components/ImageWText/ImageWText.jsx";
 export default function Home() {
   return (
     <>
-      <header className="relative z-50 flex flex-col w-screen ">
-        <Navigation />
-        <HeroBanner />
-      </header>
       <main>
+        <HeroBanner />
         <ImageWithText
           image="/networking.svg"
           alt="People working as a team"
