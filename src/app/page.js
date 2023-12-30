@@ -2,6 +2,7 @@ import Navigation from "../components/Navigation/Navigation.jsx";
 import MenuModal from "../components/MenuModal/MenuModal.jsx";
 import HeroBanner from "../components/HeroBanner/HeroBanner.jsx";
 import ImageWithText from "../components/ImageWText/ImageWText.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 export default function Home() {
   return (
     <>
@@ -26,6 +27,7 @@ export default function Home() {
           heading="Stand out & get hired"
         />
       </main>
+      <Footer />
     </>
   );
 }
