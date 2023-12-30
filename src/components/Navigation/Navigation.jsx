@@ -13,9 +13,17 @@ function Navigation() {
           <Menu />
           <Logo />
         </div>
-        <div className="flex items-center justify-center mr-5 lg:basis-0 lg:flex-grow lg:justify-end">
+        <div className="flex items-center justify-center mr-5 space-x-6 xl:mr-10 lg:basis-0 lg:flex-grow lg:justify-end">
+          <a
+            href="/login"
+            className="hidden font-semibold lg:block font-martian"
+          >
+            Log in
+          </a>
           <PrimaryButtonStyleWrapper>
-            <button className="font-semibold font-martian">Sign Up</button>
+            <a href="/signup" className="font-semibold font-martian">
+              Sign Up
+            </a>
           </PrimaryButtonStyleWrapper>
         </div>
       </div>
@@ -25,11 +33,11 @@ function Navigation() {
 
 function DesktopMenu() {
   return (
-    <ul className="hidden lg:ml-5 lg:space-x-10 lg:basis-0 lg:flex lg:flex-grow">
-      <li className="text-sm font-martian">Jobs</li>
-      <li className="text-sm font-martian">Find a team</li>
-      <li className="text-sm font-martian">Projects</li>
-      <li className="text-sm font-martian">README guide</li>
+    <ul className="hidden font-martian lg:ml-5 xl:ml-10 lg:space-x-6 lg:basis-0 lg:flex lg:flex-grow lg:text-xs xl:text-base">
+      <li>Jobs</li>
+      <li>Find a team</li>
+      <li>Projects</li>
+      <li>README guide</li>
     </ul>
   );
 }
