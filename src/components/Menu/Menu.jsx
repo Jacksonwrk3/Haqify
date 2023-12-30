@@ -10,11 +10,11 @@ function Menu() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <>
+    <div className="lg:hidden">
       <Hamburger isOpen={isOpen} setOpen={setOpen} />
       <NavList isOpen={isOpen} />
       <MenuModal isOpen={isOpen} setOpen={setOpen} />
-    </>
+    </div>
   );
 }
 
