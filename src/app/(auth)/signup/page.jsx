@@ -1,10 +1,16 @@
+"use client";
 import React from "react";
-
+import Image from "next/image";
+import SignUpForm from "./SignUpForm.jsx";
+import supabase from "../../../../supabase.js";
 function SignUp() {
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-yellow-100">
+    <div className="w-screen h-screen space-y-6 border-2 border-blue-300">
+      <div className="relative mt-12 h-1/3">
+        <Image src="signup.svg" alt="Sign up" fill sizes="100vw" />
+      </div>
       <div>
-        <h1 className="text-3xl font-poppins">Sign up to Haqify</h1>
+        <SignUpForm />
       </div>
     </div>
   );

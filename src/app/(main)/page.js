@@ -1,7 +1,7 @@
-import Navigation from "../components/Navigation/Navigation.jsx";
-import MenuModal from "../components/MenuModal/MenuModal.jsx";
-import HeroBanner from "../components/HeroBanner/HeroBanner.jsx";
-import ImageWithText from "../components/ImageWText/ImageWText.jsx";
+import MenuModal from "../../components/MenuModal/MenuModal.jsx";
+import HeroBanner from "../../components/HeroBanner/HeroBanner.jsx";
+import Navigation from "../../components/Navigation/Navigation.jsx";
+import ImageWithText from "../../components/ImageWText/ImageWText.jsx";
 export default function Home() {
   return (
     <>
@@ -9,7 +9,7 @@ export default function Home() {
         <HeroBanner />
         <ImageWithText
           image="/networking.svg"
-          alt="People working as a team"
+          imgAlt="People working as a team"
           paragraph="Network and find a team of like
         minded developers to learn and
         build the next big thing!"
@@ -18,7 +18,7 @@ export default function Home() {
         />
         <ImageWithText
           image="/interview.svg"
-          alt="An interview"
+          imgAlt="An interview"
           paragraph="Develop unique apps with your team to stand out amongst the rest"
           heading="Stand out & get hired"
         />

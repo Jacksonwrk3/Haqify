@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 function NavList(props) {
   return (
     <>
@@ -14,7 +14,9 @@ function NavList(props) {
         <li className="pt-2 pb-4 border-b font-martian">README guide</li>
         {/* Have to figure out a way to unrender Log in button when hamburger menu is no
         longer needed and render it next to the sign up button instead*/}
-        <li className="pt-4 pb-4 font-martian">Log in</li>
+        <li className="pt-4 pb-4 font-martian">
+          <Link href="/login">Log in</Link>
+        </li>
       </ul>
     </>
   );

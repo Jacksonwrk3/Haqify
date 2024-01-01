@@ -3,7 +3,7 @@ import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryBu
 const HeroBanner = () => {
   return (
     <section className="flex flex-col items-center pt-20 pb-10 ">
-      <p className="max-w-screen-xl px-5 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg md:text-lg w-fit font-martian">
+      <p className="w-11/12 px-5 py-2 text-sm font-semibold text-center bg-indigo-300 rounded-lg max-w-fit md:text-lg font-martian">
         Over 3 million passionate developer
       </p>
       <h1 className="w-11/12 max-w-screen-xl mt-10 text-4xl leading-snug text-center md:text-6xl font-poppins ">

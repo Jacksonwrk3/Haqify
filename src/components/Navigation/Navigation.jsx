@@ -2,8 +2,10 @@ import React from "react";
 import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
 import MenuModal from "../MenuModal/MenuModal";
+import Link from "next/link";
 import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper";
 function Navigation() {
+  console.log("hello");
   return (
     <nav className="relative flex flex-col w-full ">
       <div className="flex flex-row items-center justify-between w-full h-24">
@@ -14,16 +16,16 @@ function Navigation() {
           <Logo />
         </div>
         <div className="flex items-center justify-center mr-5 space-x-6 xl:mr-10 lg:basis-0 lg:flex-grow lg:justify-end">
-          <a
+          <Link
             href="/login"
             className="hidden font-semibold lg:block font-martian"
           >
             Log in
-          </a>
+          </Link>
           <PrimaryButtonStyleWrapper>
-            <a href="/signup" className="font-semibold font-martian">
+            <Link href="/signup" className="font-semibold font-martian">
               Sign Up
-            </a>
+            </Link>
           </PrimaryButtonStyleWrapper>
         </div>
       </div>

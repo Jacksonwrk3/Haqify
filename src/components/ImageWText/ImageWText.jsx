@@ -12,7 +12,7 @@ function ImageWText(props) {
   }
 
   return (
-    <section className="pt-10 bg-gray-200 md:flex md:justify-center md:items-center">
+    <section className="pt-10 bg-gray-50 md:flex md:justify-center md:items-center">
       <div
         className={` md:h-full w-full  flex flex-col space-y-12   md:flex-row max-w-screen-xl ${imgPosition}`}
       >
@@ -25,7 +25,7 @@ function ImageWText(props) {
           </p>
         </div>
         <div className="relative w-full h-52 md:w-1/2">
-          <Image src={props.image} alt="image" fill sizes="100vw" />
+          <Image src={props.image} alt={props.imgAlt} fill sizes="100vw" />
         </div>
       </div>
     </section>

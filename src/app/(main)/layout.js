@@ -1,8 +1,6 @@
-// src/app/layout.js
-
-import "./globals.css";
+import "../globals.css";
 import { Poppins, Martian_Mono, Roboto_Mono } from "next/font/google";
-import Navigation from "../components/Navigation/Navigation.jsx";
+import Navigation from "../../components/Navigation/Navigation.jsx";
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap",
@@ -28,7 +26,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${martianMono.variable} ${robotoMono.variable}`}
     >
-      <body className="relative">
+      <body className="relative ">
         <header className="relative z-50 flex flex-col w-screen ">
           <Navigation />
         </header>
