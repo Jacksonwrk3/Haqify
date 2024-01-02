@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import supabase from "../../../../supabase.js";
-import { signup } from "./_actions/index.js";
+import supabase from "../../../supabase.js";
+import { signup } from "../../app/(auth)/signup/_actions/index.js";
 import { useFormStatus } from "react-dom";
-import formValidation from "../../../util/signUpValidation.js";
-import PrimaryButtonStyleWrapper from "../../../components/UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper";
+import formValidation from "../../util/signUpValidation.js";
+import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper.jsx";
 function SignUpForm() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");

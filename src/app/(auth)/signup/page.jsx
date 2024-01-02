@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SignUpForm from "./SignUpForm.jsx";
+import SignUpForm from "../../../components/SignUpForm/SignUpForm.jsx";
 import PrimaryButtonStyleWrapper from "../../../components/UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper";
 
 function SignUp() {

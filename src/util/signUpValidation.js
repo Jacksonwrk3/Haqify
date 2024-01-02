@@ -43,10 +43,10 @@ const hasPasswordError = (password) => {
   if (password.length <= 8) {
     return "Use 8 characters or more for your password";
   } else if (
-    !containsCapitalLetters(password) ||
-    !containsLowerCaseLetters(password) ||
-    !containsNumbers(password) ||
-    !containsSpecialCharacters(password)
+    !check.containsCapitalLetters(password) ||
+    !check.containsLowerCaseLetters(password) ||
+    !check.containsNumbers(password) ||
+    !check.containsSpecialCharacters(password)
   ) {
     return "Your password must contain at least one capital letter, one lowercase letter, one number, and one special character";
   } else {

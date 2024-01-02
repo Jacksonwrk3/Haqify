@@ -23,7 +23,7 @@ function containsLetters(input) {
 }
 
 const check = {
-  hasSpecialCharacters: containsSpecialCharacters,
+  containsSpecialCharacters: containsSpecialCharacters,
   containsNumbers: containsNumbers,
   containsAccents: containsAccents,
   containsCapitalLetters: containsCapitalLetters,
