@@ -1,0 +1,32 @@
+function containsSpecialCharacters(input) {
+  return /[!@#$%^&*()_+\-:\[\]{};':"\\|,.<>\/?]+/.test(input);
+}
+
+function containsNumbers(input) {
+  return /\d/.test(input);
+}
+
+function containsAccents(input) {
+  return /[À-ÿ]/.test(input);
+}
+
+function containsCapitalLetters(input) {
+  return /[A-Z]/.test(input);
+}
+
+function containsLowerCaseLetters(input) {
+  return /[a-z]/.test(input);
+}
+
+function containsLetters(input) {
+  return /[a-zA-Z]/.test(input);
+}
+
+export default check = {
+  hasSpecialCharacters: containsSpecialCharacters,
+  containsNumbers: containsNumbers,
+  containsAccents: containsAccents,
+  containsCapitalLetters: containsCapitalLetters,
+  containsLowerCaseLetters: containsLowerCaseLetters,
+  containsLetters: containsLetters,
+};
