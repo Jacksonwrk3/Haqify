@@ -22,7 +22,7 @@ function containsLetters(input) {
   return /[a-zA-Z]/.test(input);
 }
 
-export default check = {
+const check = {
   hasSpecialCharacters: containsSpecialCharacters,
   containsNumbers: containsNumbers,
   containsAccents: containsAccents,
@@ -30,3 +30,5 @@ export default check = {
   containsLowerCaseLetters: containsLowerCaseLetters,
   containsLetters: containsLetters,
 };
+
+export default check;

@@ -1,5 +1,5 @@
 import check from "./inputCheck";
-const validateName = (name) => {
+const hasNameError = (name) => {
   // Name must be at least 3 characters long. I know there are 1-2 letter names, but it's not common enough
   if (name.length < 3) {
     return "Your name must be at least 3 letters long";
@@ -14,11 +14,11 @@ const validateName = (name) => {
   } else if (!check.containsLetters(name)) {
     return "Your name must contain letters";
   } else {
-    return true;
+    return null;
   }
 };
 
-const validateUsername = (username) => {
+const hasUsernameError = (username) => {
   if (typeof username !== "string") {
     return "Your username must only contain letters";
   } else if (username.length < 3) {
@@ -30,16 +30,16 @@ const validateUsername = (username) => {
   } else if (check.containsSpecialCharacters(username)) {
     return "Your username cannot contain special characters";
   } else {
-    return true;
+    return null;
   }
 };
 
-const validateEmail = (email) => {
+const isEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
 
-const validatePassword = (password) => {
+const hasPasswordError = (password) => {
   if (password.length <= 8) {
     return "Use 8 characters or more for your password";
   } else if (
@@ -49,5 +49,16 @@ const validatePassword = (password) => {
     !containsSpecialCharacters(password)
   ) {
     return "Your password must contain at least one capital letter, one lowercase letter, one number, and one special character";
+  } else {
+    return null;
   }
 };
+
+const formValidation = {
+  hasNameError: hasNameError,
+  hasUsernameError: hasUsernameError,
+  hasPasswordError: hasPasswordError,
+  isEmail: isEmail,
+};
+
+export default formValidation;
