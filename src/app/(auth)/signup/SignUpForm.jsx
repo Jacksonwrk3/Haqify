@@ -28,7 +28,6 @@ function SignUpForm() {
   };
 
   const { pending } = useFormStatus();
-
   return (
     <form
       action={async () => {
@@ -37,10 +36,10 @@ function SignUpForm() {
       }}
       className=""
     >
-      <h1 className="text-3xl font-bold text-center font-poppins">
+      <h1 className="text-3xl font-bold text-center font-poppins sm:text-4xl">
         Sign up to Haqify
       </h1>
-      <div className="flex justify-center text-xs font-semibold font-martian">
+      <div className="flex justify-center text-xs font-semibold font-martian sm:text-sm">
         <div className="flex flex-col w-11/12 mt-6 space-y-3">
           <div className="flex space-x-3 ">
             <div className="flex flex-col ">
