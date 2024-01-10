@@ -13,7 +13,7 @@ function Navigation() {
           <Menu />
           <Logo />
         </div>
-        <div className="flex items-center justify-center mr-5 space-x-6 border border-red-300 xl:mr-10 lg:basis-0 lg:flex-grow lg:justify-end">
+        <div className="flex items-center justify-center mr-5 space-x-6 xl:mr-10 lg:basis-0 lg:flex-grow lg:justify-end">
           <Link
             href="/login"
             className="hidden font-semibold lg:block font-martian"

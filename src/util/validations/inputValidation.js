@@ -1,17 +1,40 @@
-import check from "./inputCheck";
+function hasSpecialCharacters(input) {
+  return /[!@#$%^&*()_+\-:\[\]{};':"\\|,.<>\/?]+/.test(input);
+}
+
+function hasNumbers(input) {
+  return /\d/.test(input);
+}
+
+function hasAccents(input) {
+  return /[À-ÿ]/.test(input);
+}
+
+function hasCapitalLetters(input) {
+  return /[A-Z]/.test(input);
+}
+
+function hasLowerCaseLetters(input) {
+  return /[a-z]/.test(input);
+}
+
+function hasLetters(input) {
+  return /[a-zA-Z]/.test(input);
+}
+
+// null means no errors
 const hasNameError = (name) => {
-  // Name must be at least 3 characters long. I know there are 1-2 letter names, but it's not common enough
   if (name.length < 3) {
     return "Your name must be at least 3 letters long";
   } else if (typeof name !== "string") {
     return "Your name must only contain letters";
   } else if (name.length > 20) {
     return "Your name must be less than 20 characters long";
-  } else if (check.containsSpecialCharacters(name)) {
+  } else if (hasSpecialCharacters(name)) {
     return "Your name cannot contain special characters";
-  } else if (check.containsNumbers(name)) {
+  } else if (hasNumbers(name)) {
     return "Your name must only contain letters";
-  } else if (!check.containsLetters(name)) {
+  } else if (!hasLetters(name)) {
     return "Your name must contain letters";
   } else {
     return null;
@@ -25,13 +48,30 @@ const hasUsernameError = (username) => {
     return "Your username must be at least 3 characters long";
   } else if (username.length > 15) {
     return "Your username be less than 16 characters long";
-  } else if (check.containsAccents(username)) {
+  } else if (hasAccents(username)) {
     return "Your username cannot contain accents";
-  } else if (check.containsSpecialCharacters(username)) {
+  } else if (hasSpecialCharacters(username)) {
     return "Your username cannot contain special characters";
   } else {
     return null;
   }
+};
+
+const isAppropriate = async (name) => {
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAPI_KEY,
+  });
+
+  const openai = new OpenAIAPI(configuration);
+  const completition = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "user",
+        content: `Is the name ${name} appropriate true or false?`,
+      },
+    ],
+  });
 };
 
 const isEmail = (email) => {
@@ -43,10 +83,10 @@ const hasPasswordError = (password) => {
   if (password.length <= 8) {
     return "Use 8 characters or more for your password";
   } else if (
-    !check.containsCapitalLetters(password) ||
-    !check.containsLowerCaseLetters(password) ||
-    !check.containsNumbers(password) ||
-    !check.containsSpecialCharacters(password)
+    !hasCapitalLetters(password) ||
+    !hasLowerCaseLetters(password) ||
+    !hasNumbers(password) ||
+    !hasSpecialCharacters(password)
   ) {
     return "Your password must contain at least one capital letter, one lowercase letter, one number, and one special character";
   } else {
@@ -54,11 +94,18 @@ const hasPasswordError = (password) => {
   }
 };
 
-const formValidation = {
+const inputValidation = {
+  hasSpecialCharacters: hasSpecialCharacters,
+  hasNumbers: hasNumbers,
+  hasAccents: hasAccents,
+  hasCapitalLetters: hasCapitalLetters,
+  hasLowerCaseLetters: hasLowerCaseLetters,
+  hasLetters: hasLetters,
   hasNameError: hasNameError,
   hasUsernameError: hasUsernameError,
   hasPasswordError: hasPasswordError,
   isEmail: isEmail,
+  isAppropriate: isAppropriate,
 };
 
-export default formValidation;
+export default inputValidation;

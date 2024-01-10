@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import supabase from "../../../supabase.js";
 import { signup } from "../../app/(auth)/signup/_actions/index.js";
 import { useFormStatus } from "react-dom";
-import formValidation from "../../util/signUpValidation.js";
+import inputValidation from "../../util/validations/inputValidation.js";
 import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper.jsx";
 function SignUpForm() {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -16,19 +16,14 @@ function SignUpForm() {
 
   // Validates the form, check if there are any errors in the inputs
   const validateForm = (name, username, email, password) => {
-    setFullNameError(formValidation.hasNameError(name));
-    setUsernameError(formValidation.hasUsernameError(username));
-    setPasswordError(formValidation.hasPasswordError(password));
+    setFullNameError(inputValidation.hasNameError(name));
+    setUsernameError(inputValidation.hasUsernameError(username));
+    setPasswordError(inputValidation.hasPasswordError(password));
   };
 
   // Handles the form "submission"
   const formAction = (name, username, email, password) => {
-    validateForm(
-      enteredFullName,
-      enteredUsername,
-      enteredEmail,
-      enteredPassword
-    );
+    validateForm(enteredFullName, enteredUsername, enteredPassword);
     if (
       setFullNameError !== null ||
       setUsernameError !== null ||
@@ -67,12 +62,15 @@ function SignUpForm() {
         );
         signup(enteredFullName, enteredUsername, enteredEmail, enteredPassword);
       }}
-      className=""
+      className="border border-red-300"
     >
       <h1 className="text-3xl font-bold text-center font-poppins sm:text-4xl">
         Sign up to Haqify
       </h1>
-      <div className="flex justify-center text-xs font-semibold font-martian sm:text-sm">
+      <div className="w-11/12 text-xs text-red-400">
+        {fullNameError ? fullNameError : null}
+      </div>
+      <div className="flex justify-center text-xs font-semibold border border-red-300 font-martian sm:text-sm">
         <div className="flex flex-col w-11/12 mt-6 space-y-3">
           <div className="flex space-x-3 ">
             <div className="flex flex-col ">
@@ -124,11 +122,12 @@ function SignUpForm() {
             onChange={handlePasswordChange}
             required
           />
-          <div className="flex items-center justify-center w-full h-12 px-3 py-2 duration-300 bg-green-300 border border-green-300 rounded-lg hover:bg-white hover:text-green-300">
-            <button className="" aria-disabled={pending}>
-              Sign up
-            </button>
-          </div>
+          <button
+            className="flex items-center justify-center w-full h-12 px-3 py-2 duration-300 bg-green-300 border border-green-300 rounded-lg hover:bg-white hover:text-green-300"
+            aria-disabled={pending}
+          >
+            Sign up
+          </button>
         </div>
       </div>
     </form>
