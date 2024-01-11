@@ -25,17 +25,17 @@ function hasLetters(input) {
 // null means no errors
 const hasNameError = (name) => {
   if (name.length < 3) {
-    return "Your name must be at least 3 letters long";
+    return "Name must be at least 3 letters long";
   } else if (typeof name !== "string") {
-    return "Your name must only contain letters";
+    return "Name must only contain letters";
   } else if (name.length > 20) {
-    return "Your name must be less than 20 characters long";
+    return "Name must be less than 20 characters long";
   } else if (hasSpecialCharacters(name)) {
-    return "Your name cannot contain special characters";
+    return "Name cannot contain special characters";
   } else if (hasNumbers(name)) {
-    return "Your name must only contain letters";
+    return "Name must only contain letters";
   } else if (!hasLetters(name)) {
-    return "Your name must contain letters";
+    return "Name must contain letters";
   } else {
     return null;
   }
@@ -43,15 +43,15 @@ const hasNameError = (name) => {
 
 const hasUsernameError = (username) => {
   if (typeof username !== "string") {
-    return "Your username must only contain letters";
+    return "Username must only contain letters";
   } else if (username.length < 3) {
-    return "Your username must be at least 3 characters long";
+    return "Username must be at least 3 characters long";
   } else if (username.length > 15) {
-    return "Your username be less than 16 characters long";
+    return "Username be less than 16 characters long";
   } else if (hasAccents(username)) {
-    return "Your username cannot contain accents";
+    return "Username cannot contain accents";
   } else if (hasSpecialCharacters(username)) {
-    return "Your username cannot contain special characters";
+    return "Username cannot contain special characters";
   } else {
     return null;
   }
@@ -81,14 +81,15 @@ const isEmail = (email) => {
 
 const hasPasswordError = (password) => {
   if (password.length <= 8) {
-    return "Use 8 characters or more for your password";
-  } else if (
-    !hasCapitalLetters(password) ||
-    !hasLowerCaseLetters(password) ||
-    !hasNumbers(password) ||
-    !hasSpecialCharacters(password)
-  ) {
-    return "Your password must contain at least one capital letter, one lowercase letter, one number, and one special character";
+    return "Use 8 characters or more for your passwords";
+  } else if (!hasCapitalLetters(password)) {
+    return "Password must contain at least one capital letter";
+  } else if (!hasLowerCaseLetters(password)) {
+    return "Password must contain at least one lowercase letter";
+  } else if (!hasNumbers(password)) {
+    return "Password must contain at least one number";
+  } else if (!hasSpecialCharacters(password)) {
+    return "Password must contain at least one special character";
   } else {
     return null;
   }

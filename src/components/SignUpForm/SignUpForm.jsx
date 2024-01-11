@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import supabase from "../../../supabase.js";
-import { signup } from "../../app/(auth)/signup/_actions/index.js";
+import signup from "../../app/(auth)/signup/_actions/index.js";
 import { useFormStatus } from "react-dom";
 import inputValidation from "../../util/validations/inputValidation.js";
 import PrimaryButtonStyleWrapper from "../UI/PrimaryButtonStyleWrapper/PrimaryButtonStyleWrapper.jsx";
@@ -60,17 +60,26 @@ function SignUpForm() {
           enteredEmail,
           enteredPassword
         );
-        signup(enteredFullName, enteredUsername, enteredEmail, enteredPassword);
+        let result = await signup(
+          enteredFullName,
+          enteredUsername,
+          enteredEmail,
+          enteredPassword
+        );
       }}
-      className="border border-red-300"
     >
       <h1 className="text-3xl font-bold text-center font-poppins sm:text-4xl">
         Sign up to Haqify
       </h1>
-      <div className="w-11/12 text-xs text-red-400">
-        {fullNameError ? fullNameError : null}
-      </div>
-      <div className="flex justify-center text-xs font-semibold border border-red-300 font-martian sm:text-sm">
+      {fullNameError || usernameError || passwordError ? (
+        <ul className=" list-disc w-10/12 mx-auto my-0 mt-4 space-y-0.5 text-sm  text-red-400">
+          {fullNameError ? <li>{fullNameError}</li> : null}
+          {usernameError ? <li>{usernameError}</li> : null}
+          {passwordError ? <li>{passwordError}</li> : null}
+        </ul>
+      ) : null}
+
+      <div className="flex justify-center text-xs font-semibold font-martian sm:text-sm">
         <div className="flex flex-col w-11/12 mt-6 space-y-3">
           <div className="flex space-x-3 ">
             <div className="flex flex-col ">

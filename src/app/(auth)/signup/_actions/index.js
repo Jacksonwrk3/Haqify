@@ -1,8 +1,8 @@
 "use server";
 import supabase from "../../../../../supabase";
-
-export const signup = async (name, username, email, password) => {
-  console.log("inside server component");
+// Signs the user up through custom credentials. A trigger will be fired on
+// supabase to add data to the users table AFTER added to the auth.users table
+const signup = async (name, username, email, password) => {
   const { data, error } = await supabase.auth.signUp({
     email: email,
     password: password,
@@ -15,10 +15,12 @@ export const signup = async (name, username, email, password) => {
   });
 
   if (error) {
-    console.log(error);
+    console.log("This is the error: ", error);
     return JSON.stringify(error);
   } else {
     console.log("This is the data ", data);
     return JSON.stringify(data);
   }
 };
+
+export default signup;
