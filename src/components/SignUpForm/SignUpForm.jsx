@@ -81,10 +81,12 @@ function SignUpForm() {
         Sign up to Haqify
       </h1>
       {(fullNameError || usernameError || passwordError || serverError) && (
+        // If there are any errors regarding the form, render the error list
         <ul className="list-disc w-10/12 mx-auto my-0 mt-4 space-y-0.5 text-sm text-red-400">
           {fullNameError && <li>{fullNameError}</li>}
           {usernameError && <li>{usernameError}</li>}
           {passwordError && <li>{passwordError}</li>}
+          {/* Handles different error formats given back from the server. Server only return error.message in forms of string and array */}
           {serverError && (
             <>
               {typeof serverError === "string" && <li>{serverError}</li>}
