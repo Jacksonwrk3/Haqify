@@ -4,17 +4,14 @@ import inputValidation from "../../../../util/validations/inputValidation";
 // Signs the user up through custom credentials. A trigger will be fired on
 // supabase to add data to the users table AFTER added to the auth.users table
 const signup = async (name, username, email, password) => {
-  const formInputErrors = serverSideFormValidation(
-    name,
-    username,
-    email,
-    password
-  );
-  if (formInputErrors !== null) {
+  const formIsValid = serverSideFormValidation(name, username, email, password);
+
+  // Checks if forms are good on server side, but wont send back error. If user filled it out the right way client will show them errors. If form is being exploited then it will just return null.
+  if (formIsValid === false) {
     return {
-      name: "Server Form Validation Error",
-      message: formInputErrors,
-      status: 403,
+      error: "Form is not valid",
+      message: null,
+      status: 400,
     };
   }
   return await userNameExists(username).then(async (result) => {
@@ -74,9 +71,9 @@ const serverSideFormValidation = (name, username, email, password) => {
     isEmail !== true ||
     passwordError !== null
   ) {
-    return [nameError, usernameError, isEmail, passwordError];
+    return false;
   } else {
-    return null;
+    return true;
   }
 };
 

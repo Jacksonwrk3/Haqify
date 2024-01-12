@@ -40,7 +40,8 @@ function SignUpForm() {
         enteredEmail,
         enteredPassword
       );
-      if (result.status >= 400 && result.status < 600) {
+      if (result.message === null) {
+      } else if (result.status >= 400 && result.status < 600) {
         setServerError(result.message);
       } else if (result.status >= 200 && result.status < 300) {
         // Redirect to teams page
