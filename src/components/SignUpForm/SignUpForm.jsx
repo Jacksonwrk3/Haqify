@@ -66,6 +66,7 @@ function SignUpForm() {
           enteredEmail,
           enteredPassword
         );
+        console.log("This is the result on client side: ", result);
       }}
     >
       <h1 className="text-3xl font-bold text-center font-poppins sm:text-4xl">
