@@ -13,25 +13,40 @@ function SignUpForm() {
   const [passwordError, setPasswordError] = useState(null);
   const [fullNameError, setFullNameError] = useState(null);
   const [usernameError, setUsernameError] = useState(null);
+  // Holds the errors that occurs while trying to sign up. Can return supabase errors or custom errors, but structured simiarly.
+  // This will either be a string or object
+  const [serverError, setServerError] = useState(null);
 
   // Validates the form, check if there are any errors in the inputs
-  const validateForm = (name, username, email, password) => {
+  const validateForm = (name, username, password) => {
     setFullNameError(inputValidation.hasNameError(name));
     setUsernameError(inputValidation.hasUsernameError(username));
     setPasswordError(inputValidation.hasPasswordError(password));
   };
 
   // Handles the form "submission"
-  const formAction = (name, username, email, password) => {
+  const formAction = async (name, username, email, password) => {
     validateForm(enteredFullName, enteredUsername, enteredPassword);
     if (
-      setFullNameError !== null ||
-      setUsernameError !== null ||
-      setPasswordError !== null
+      fullNameError !== null ||
+      usernameError !== null ||
+      passwordError !== null
     ) {
       return;
     } else {
-      signup(enteredFullName, enteredUsername, enteredEmail, enteredPassword);
+      let result = await signup(
+        enteredFullName,
+        enteredUsername,
+        enteredEmail,
+        enteredPassword
+      );
+      if (result.status >= 400 && result.status < 600) {
+        setServerError(result.message);
+      } else if (result.status >= 200 && result.status < 300) {
+        // Redirect to teams page
+      }
+      {
+      }
     }
   };
   const handleEmailChange = (e) => {
@@ -54,31 +69,31 @@ function SignUpForm() {
   return (
     <form
       action={async () => {
-        validateForm(
+        formAction(
           enteredFullName,
           enteredUsername,
           enteredEmail,
           enteredPassword
         );
-        let result = await signup(
-          enteredFullName,
-          enteredUsername,
-          enteredEmail,
-          enteredPassword
-        );
-        console.log("This is the result on client side: ", result);
       }}
     >
       <h1 className="text-3xl font-bold text-center font-poppins sm:text-4xl">
         Sign up to Haqify
       </h1>
-      {fullNameError || usernameError || passwordError ? (
-        <ul className=" list-disc w-10/12 mx-auto my-0 mt-4 space-y-0.5 text-sm  text-red-400">
-          {fullNameError ? <li>{fullNameError}</li> : null}
-          {usernameError ? <li>{usernameError}</li> : null}
-          {passwordError ? <li>{passwordError}</li> : null}
+      {(fullNameError || usernameError || passwordError || serverError) && (
+        <ul className="list-disc w-10/12 mx-auto my-0 mt-4 space-y-0.5 text-sm text-red-400">
+          {fullNameError && <li>{fullNameError}</li>}
+          {usernameError && <li>{usernameError}</li>}
+          {passwordError && <li>{passwordError}</li>}
+          {serverError && (
+            <>
+              {typeof serverError === "string" && <li>{serverError}</li>}
+              {Array.isArray(serverError) &&
+                serverError.map((error) => <li>{error}</li>)}
+            </>
+          )}
         </ul>
-      ) : null}
+      )}
 
       <div className="flex justify-center text-xs font-semibold font-martian sm:text-sm">
         <div className="flex flex-col w-11/12 mt-6 space-y-3">

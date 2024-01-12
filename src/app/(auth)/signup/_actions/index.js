@@ -74,12 +74,7 @@ const serverSideFormValidation = (name, username, email, password) => {
     isEmail !== true ||
     passwordError !== null
   ) {
-    return {
-      nameError: nameError,
-      usernameError: usernameError,
-      isEmail: isEmail,
-      passwordError: passwordError,
-    };
+    return [nameError, usernameError, isEmail, passwordError];
   } else {
     return null;
   }
