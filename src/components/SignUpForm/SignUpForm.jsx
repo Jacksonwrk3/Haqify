@@ -40,10 +40,15 @@ function SignUpForm() {
         enteredEmail,
         enteredPassword
       );
+      console.log("outside if loop: ", typeof result);
+      // result = { name: "Error", message: error.message, status: error.status, };
       if (result.message === null) {
       } else if (result.status >= 400 && result.status < 600) {
+        console.log("in status 400 and above: ", result.message);
         setServerError(result.message);
       } else if (result.status >= 200 && result.status < 300) {
+        console.log("hello");
+
         // Redirect to teams page
       }
       {

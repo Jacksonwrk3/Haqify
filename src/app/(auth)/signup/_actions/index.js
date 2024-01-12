@@ -33,7 +33,7 @@ const signup = async (name, username, email, password) => {
         },
       });
       if (error) {
-        return JSON.stringify(error);
+        return error;
       } else {
         return { name: "Success", message: "User created", status: "200" };
       }
